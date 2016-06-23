@@ -11,6 +11,9 @@ var teammembers = [
 
 var controller = Botkit.slackbot();
 
+answer.loadFirstMessages('localhost', '3000', '/1');
+answer.loadSecondMessages('localhost', '3000', '/2');
+
 controller.hears('',["direct_mention", "mention", "direct_message"],function(bot,message) {
   // do something to respond to message
   // all of the fields available in a normal Slack message object are available
