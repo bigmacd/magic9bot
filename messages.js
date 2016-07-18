@@ -1,59 +1,61 @@
 var http = require('http');
 
 var firstLine = [
-   "The answer is...",
-   "I'm thinking...",
-   "I'll go with...",
-   "Let's say...",
-   "How about...",
-   "What about...",
-   "Consider...",
-   "1 possibility...",
-   "If I must...",
-   "That's easy...",
-   "Hmmmm...",
-   "Ethically...",
-   "It can be only..."];
+   { id: '1', msg: "The answer is..." },
+   { id: '1', msg: "I'm thinking..." },
+   { id: '1', msg: "I'll go with..." },
+   { id: '1', msg: "Let's say..." },
+   { id: '1', msg: "How about..." },
+   { id: '1', msg: "What about..." },
+   { id: '1', msg: "Consider..." },
+   { id: '1', msg: "1 possibility..." },
+   { id: '1', msg: "If I must..." },
+   { id: '1', msg: "That's easy..." },
+   { id: '1', msg: "Hmmmm..." },
+   { id: '1', msg: "Ethically..." },
+   { id: '1', msg: "It can be only..."} 
+];
 
 var secondLine = [
-   "42",
-   "2 points",
-   "It's not ready",
-   "You need a spike",
-   "Let John decide",
-   "Thang's pickle",
-   "No Wei Wei",
-   "No Wei Bro",
-   "Vodka first",
-   "Break it down",
-   "Delete it",
-   "Invalid use case",
-   "Swarm on this",
-   "Vote on it",
-   "Scrum Poker",
-   "Move to ready",
-   "3 points",
-   "8 points",
-   "Whatever",
-   "No way",
-   "That's easy",
-   "It's blocking",
-   "Bad user story",
-   "I'm no Genie",
-   "Need beer",
-   "Need ACs",
-   "Need ATs",
-   "No test case",
-   "Mike's right",
-   "Nick's Wright",
-   "No API",
-   "Do the API",
-   "CbQoS FTW",
-   "Lenny Ha-Ha",
-   "GFDISDTS",
-   "Relax, its over",
-   "Move to backlog",
-   "Burn this down"];
+   { id: '1', msg: "42" },
+   { id: '1', msg: "2 points" },
+   { id: '1', msg: "It's not ready" },
+   { id: '1', msg: "You need a spike" },
+   { id: '1', msg: "Let John decide" },
+   { id: '1', msg: "Thang's pickle" },
+   { id: '1', msg: "No Wei Wei" },
+   { id: '1', msg: "No Wei Bro" },
+   { id: '1', msg: "Vodka first" },
+   { id: '1', msg: "Break it down" },
+   { id: '1', msg: "Delete it" },
+   { id: '1', msg: "Invalid use case" },
+   { id: '1', msg: "Swarm on this" },
+   { id: '1', msg: "Vote on it" },
+   { id: '1', msg: "Scrum Poker" },
+   { id: '1', msg: "Move to ready" },
+   { id: '1', msg: "3 points" },
+   { id: '1', msg: "8 points" },
+   { id: '1', msg: "Whatever" },
+   { id: '1', msg: "No way" },
+   { id: '1', msg: "That's easy" },
+   { id: '1', msg: "It's blocking" },
+   { id: '1', msg: "Bad user story" },
+   { id: '1', msg: "I'm no Genie" },
+   { id: '1', msg: "Need beer" },
+   { id: '1', msg: "Need ACs" },
+   { id: '1', msg: "Need ATs" },
+   { id: '1', msg: "No test case" },
+   { id: '1', msg: "Mike's right" },
+   { id: '1', msg: "Nick's Wright" },
+   { id: '1', msg: "No API" },
+   { id: '1', msg: "Do the API" },
+   { id: '1', msg: "CbQoS FTW" },
+   { id: '1', msg: "Lenny Ha-Ha" },
+   { id: '1', msg: "GFDISDTS" },
+   { id: '1', msg: "Relax, its over" },
+   { id: '1', msg: "Move to backlog" },
+   { id: '1', msg: "Burn this down"}
+];
 
 var lfm = function(host, port, path) {
     getMessages(host, port, path, handleFirstMessages);
@@ -93,12 +95,8 @@ function getMessages(host, port, path, callback) {
    };
 
    http.request(options, function (res) {
-      //console.log('STATUS: ' + res.statusCode);
-      //console.log('HEADERS: ' + JSON.stringify(res.headers));
       res.setEncoding('utf8');
       res.on('data', function (chunk) {
-         //console.log('BODY: ' + chunk);
-         //return chunk['user']['name'];
          var response = JSON.parse(chunk);
          callback(response);
       });
