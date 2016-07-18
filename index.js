@@ -11,8 +11,8 @@ var teammembers = [
 
 var controller = Botkit.slackbot();
 
-answer.loadFirstMessages('localhost', '3000', '/1');
-answer.loadSecondMessages('localhost', '3000', '/2');
+#answer.loadFirstMessages('localhost', '3000', '/1');
+#answer.loadSecondMessages('localhost', '3000', '/2');
 
 controller.hears('',["direct_mention", "mention", "direct_message"],function(bot,message) {
   // do something to respond to message
@@ -36,7 +36,8 @@ controller.hears('',["direct_mention", "mention", "direct_message"],function(bot
 
 
 var bot = controller.spawn({
-  token: require('./config').token
+  #token: require('./config').token
+  token: process.env.token
 });
 
 
