@@ -20,6 +20,7 @@ controller.hears('',["direct_mention", "mention", "direct_message"],function(bot
   // https://api.slack.com/events/message
 
     var response = answer.getRandomFirstLine();
+    console.log(response);
     var wasSaid = message['text'];
 
     if (/\b[p|P]oints\b/.test(wasSaid)) {
