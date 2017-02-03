@@ -14,8 +14,7 @@ var teammembers = [
     "Gloria"
 ];
 
-//var controller = Botkit.slackbot(); // slack
-var controller = Botkit.botframeworkbot({});
+var controller = Botkit.slackbot(); // slack
 var wolfMessage;
 
 function wolfCallback(response) {
@@ -72,9 +71,7 @@ controller.hears('', ["direct_mention", "mention", "direct_message"], function(b
 
 
 var bot = controller.spawn({
-    //token: process.env.token  // slack
-    appId: process.env.app_id,
-    appPassword: process.env.app_password
+    token: process.env.token
 });
 
 
